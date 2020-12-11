@@ -1,0 +1,87 @@
+#!/bin/bash
+### System Setup Script
+echo Running System Setup...
+sleep 1s
+sudo dpkg-reconfigure locales tzdata keyboard-configuration
+### Clear Motd
+echo Cleaning motd...
+sleep 1s
+sudo rm -f /etc/motd
+sudo mv -f /etc/new.motd /etc/motd
+echo Done...
+sleep 1s
+echo
+# Starting up
+echo Starting the install...
+sleep 1s
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install wget software-properties-common gpg-agent netplan.io --no-install-recommends -y
+#### Software
+echo Installing your software...
+sudo apt-get install --no-install-recommends wget curl git i3-wm i3status i3lock i3blocks dmenu feh scrot -y
+sudo mkdir -p /etc/lightdm/
+sudo mkdir -p /etc/squid/
+sudo mkdir -p /home/pi/Chromium/
+sudo mkdir -p /home/
+sudo mkdir -p /home/pi/
+sudo mkdir -p /home/pi/Pictures/
+sudo mkdir -p /home/pi/Desktop/
+sudo mkdir -p /home/pi/Downloads/
+cd /home/pi/
+sudo mkdir -p /home/pi/.config/i3/
+sudo mkdir -p /home/pi/.config/i3status/
+sudo mkdir -p /home/pi/.fonts/
+sudo mkdir -p /usr/share/fonts/
+sudo mkdir -p /usr/local/share/fonts/
+git clone https://github.com/iSc0ttyathon/Custom-Ubuntu-RPI4.git
+cd Custom-Ubuntu-RPI4
+sudo mv /home/pi/Custom-Ubuntu-RPI4/feather.ttf /home/pi/.fonts/
+sudo mv /home/pi/Custom-Ubuntu-RPI4/i3-status-config /home/pi/.config/i3status/config
+sudo mv /home/pi/Custom-Ubuntu-RPI4/i3-wm-config /home/pi/.config/i3/config
+sudo mv /home/pi/Custom-Ubuntu-RPI4/Desktop.png /home/pi/Pictures/Desktop.png
+sudo mv /home/pi/Custom-Ubuntu-RPI4/Chromium /home/pi/Chromium/
+sudo mv /home/pi/Custom-Ubuntu-RPI4/RPi.jpg /home/pi/Pictures/RPi.jpg
+sudo chmod -R 0777 /home/pi/Chromium/
+sudo chmod -R 0777 /home/pi/Chromium/Chromium
+sleep 1s
+sudo apt-get update -y
+sudo apt-get install --no-install-recommends samba smbclient cifs-utils -y
+sudo rm -rf /etc/samba/smb.conf
+{ echo [global] ; echo netbios name = DesktopPi ; echo workgroup = WORKGROUP ; echo interfaces = 192.168.0.1/8 ; echo ; echo [hdd] ; echo comment = linux ; echo path = /media/ ; echo browseable = yes ; echo guest ok = yes ; echo read only = no ; echo create mask = 7777 ; echo directory mask = 7777 ; echo ; echo [root] ; echo comment = Linux ; echo path = / ; echo browseable = yes ; echo guest ok = yes ; echo read only = no ; echo create mask = 7777 ; echo directory mask = 7777 ; echo ; echo [home] ; echo comment = Linux ; echo path = /home/ ; echo browseable = yes ; echo guest ok = yes ; echo read only = no ; echo create mask = 7777 ; echo directory mask = 7777 ; } >> /etc/samba/smb.conf
+sudo apt-get clean -y
+sudo apt-get autoclean -y
+sudo apt-get update -y
+sudo apt-get install --no-install-recommends ufw lxqt lxqt-core oxygen-icon-theme volumeicon-alsa ubuntu-restricted-extras pulseaudio pavucontrol scrot htop powertop neofetch squid zram-config android-tools-adb android-tools-fastboot gnome-disk-utility gnome-icon-theme lxappearance network-manager-openvpn-gnome network-manager-openvpn network-manager-gnome network-manager gimp vnstat squid weechat screen firefox kodi uget udisks2 pcmanfm thunar thunar-volman wireguard openvpn ufw weechat-plugins libexo-1-0 stress-ng xserver-xorg xserver-xorg-video-fbdev xinit gvfs gvfs-fuse gvfs-backends udisks2 udiskie mpv vlc lightdm lightdm-gtk-greeter-settings lightdm-gtk-greeter lbzip2 bzip2 p7zip xarchiver engrampa sakura mousepad gparted hdparm -y
+echo Done...
+sleep 1s
+sudo passwd pi
+sudo passwd root
+sudo smbpasswd -a pi
+sudo smbpasswd -a root
+sudo ufw disable
+sudo systemctl disable squid
+sudo systemctl disable nmbd
+sudo systemctl enable lightdm
+sudo systemctl enable NetworkManager
+sudo systemctl enable vnstat
+sudo systemctl enable smbd
+sudo systemctl restart smbd
+###### Setting up lightdm
+echo Setting up lightdm...
+sleep 1s
+rm -rf /etc/lightdm/lightdm-gtk-greeter.conf
+cd /home/pi/Custom-Ubuntu-RPI4/
+mv /home/pi/Custom-Ubuntu-RPI4/lightdm-gtk-greeter.conf /etc/lightdm/
+###### Setting up squid
+echo Setting up squid...
+sleep 1s
+cd /home/pi/Custom-Ubuntu-RPI4/
+rm -rf /etc/squid/squid.conf
+mv /home/pi/Custom-Ubuntu-RPI4/squid.conf /etc/squid/
+sleep 1s
+sudo apt-get install snapd snap -y
+sleep 1s
+sudo snap install chromium
+sleep 1s
+echo Your system is ready to go...
