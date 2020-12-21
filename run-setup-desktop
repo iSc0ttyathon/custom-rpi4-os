@@ -1,6 +1,6 @@
 #!/bin/bash
 dpkg-reconfigure locales tzdata keyboard-configuration
-rm -f /etc/motd
+rm -rf /etc/motd
 mv -f /etc/new.motd /etc/motd
 apt-get update -y
 apt-get upgrade -y
