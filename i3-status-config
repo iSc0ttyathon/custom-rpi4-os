@@ -15,7 +15,6 @@ order += "disk /home"
 order += "ethernet eth0"
 order += "wireless wlan0"
 order += "volume master"
-order += "battery 1"
 order += "tztime local"
 
 load {
