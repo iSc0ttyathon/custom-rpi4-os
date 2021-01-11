@@ -45,7 +45,7 @@ bindsym $mod+Return exec sakura
 
 # Me
 bindsym $mod+B exec /home/pi/Chromium/Chromium
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-fill /home/pi/Pictures/Desktop.png
 exec --no-startup-id setxkbmap gb
 exec --no-startup-id volumeicon
 workspace_layout tabbed
