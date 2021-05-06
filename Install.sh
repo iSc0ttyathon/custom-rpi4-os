@@ -39,6 +39,11 @@ mv /home/pi/custom-rpi4-os/firefox-sync /usr/local/bin/
 mv /home/pi/custom-rpi4-os/firefox-update /usr/local/bin/
 mv /home/pi/custom-rpi4-os/rpi-remove /usr/local/bin/
 mv /home/pi/custom-rpi4-os/rpi-update /usr/local/bin/
+chmod +x /usr/local/bin/comp-off
+chmod +x /usr/local/bin/firefox-sync
+chmod +x /usr/local/bin/firefox-update
+chmod +x /usr/local/bin/rpi-remove
+chmod +x /usr/local/bin/rpi-update
 apt-get update -y
 apt-get upgrade -y
 apt-get full-upgrade -y
