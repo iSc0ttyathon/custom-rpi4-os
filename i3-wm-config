@@ -12,6 +12,9 @@ exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Chromium
+bindsym $mod+B exec /home/pi/Chromium/Chromium 
+
 #layout of your workspace
 workspace_layout tabbed
 
