@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo apt-get autoremove --purge -y
+sudo apt-get autoclean -y &&
+exit 
