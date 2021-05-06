@@ -44,11 +44,13 @@ mv firefox-sync /usr/local/bin/
 mv firefox-update /usr/local/bin/
 mv rpi-remove /usr/local/bin/
 mv rpi-update /usr/local/bin/
+mv check-kms /usr/local/bin/
 chmod +x /usr/local/bin/comp-off
 chmod +x /usr/local/bin/firefox-sync
 chmod +x /usr/local/bin/firefox-update
 chmod +x /usr/local/bin/rpi-remove
 chmod +x /usr/local/bin/rpi-update
+chmod +x /usr/local/bin/check-kms
 apt-get update -y
 apt-get upgrade -y
 apt-get full-upgrade -y
