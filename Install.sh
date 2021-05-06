@@ -63,6 +63,7 @@ systemctl enable lightdm
 systemctl enable NetworkManager
 systemctl enable vnstat
 systemctl enable smbd
+systemctl enable qbittorrent-nox
 ufw disable 
 dpkg-reconfigure locales tzdata keyboard-configuration resolvconf
 rm -rf /etc/hosts
