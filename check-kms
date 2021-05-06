@@ -1,0 +1,3 @@
+#!/bin/bash
+cat /proc/device-tree/soc/firmwarekms@7e600000/status;echo &&
+exit
