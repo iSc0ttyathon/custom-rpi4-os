@@ -1,10 +1,6 @@
 apt-get install --no-install-recommends libexo-2-0 ubuntu-restricted-extras xserver-xorg-video-fbdev xserver-xorg xinit vnstat squid lxqt-core xterm openbox openvpn wireguard network-manager network-manager-openvpn network-manager-openvpn-gnome network-manager-gnome iptables dnsutils whiptail iptables-persistent qrencode libqrencode4 wget curl git bzip2 lbzip2 p7zip xarchiver engrampa p7zip-full ntfs-3g gvfs gvfs-fuse gvfs-backends udiskie udisks2 thunar thunar-volman pcmanfm pcmanfm-qt samba smbclient cifs-utils sakura mousepad gimp firefox firefox-esr chromium-browser gparted hdparm gnome-icon-theme gnome-disk-utility gnome-screenshot i3-wm i3status i3lock i3blocks dmenu feh lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings python2 python3 mpv vlc pavucontrol pulseaudio volumeicon-alsa hexchat hexchat-plugins uget qbittorrent-nox qbittorrent xfwm4 lxappearance -y 
 rm -rf /etc/samba/smb.conf
 { echo [global] ; echo netbios name = PiDesktop ; echo workgroup = WORKGROUP ; echo interfaces = 192.168.0.1/8 ; echo ; echo [hdd] ; echo comment = linux ; echo path = /mnt/ ; echo browseable = yes ; echo guest ok = yes ; echo read only = no ; echo create mask = 7777 ; echo directory mask = 7777 ; echo ; echo [root] ; echo comment = Linux ; echo path = / ; echo browseable = yes ; echo guest ok = yes ; echo read only = no ; echo create mask = 7777 ; echo directory mask = 7777 ; echo ; echo [home] ; echo comment = Linux ; echo path = /home/ ; echo browseable = yes ; echo guest ok = yes ; echo read only = no ; echo create mask = 7777 ; echo directory mask = 7777 ; } >> /etc/samba/smb.conf
-passwd pi
-passwd root
-smbpasswd -a pi
-smbpasswd -a root
 mkdir -p /etc/lightdm/
 mkdir -p /etc/squid/
 mkdir -p /home/pi/Chromium/
@@ -58,3 +54,7 @@ systemctl enable vnstat
 systemctl enable smbd
 ufw disable 
 dpkg-reconfigure locales tzdata keyboard-configuration resolvconf
+passwd pi
+passwd root
+smbpasswd -a pi
+smbpasswd -a root
