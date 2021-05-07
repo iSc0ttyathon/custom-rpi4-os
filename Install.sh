@@ -1,3 +1,9 @@
+apt-get update -y
+apt-get upgrade -y
+apt-get full-upgrade -y
+apt-get dist-upgrade -y
+apt-get autoremove --purge -y
+apt-get autoclean -y
 apt-get install --no-install-recommends software-properties-common -y
 add-apt-repository ppa:mozillateam/ppa -y
 add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
@@ -76,7 +82,7 @@ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2009837CBFFD68
 echo "deb https://apt.sonarr.tv/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/sonarr.list
 apt-get update -y
 apt-get upgrade -y
-apt-get install --no-install-recommends gnupg ca-certificates -y
+apt-get install --no-install-recommends gnupg ca-certificates sonarr -y
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 apt-get update -y
