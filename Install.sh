@@ -94,6 +94,8 @@ mv lxqt.conf /home/pi/.config/lxqt/
 cd /home/pi/custom-rpi4-os
 mv lxqt-config-appearance.conf /home/pi/.config/lxqt/
 rm -rf /home/pi/custom-rpi4-os
+systemctl enable radarr
+systemctl enable nzbget
 passwd pi
 passwd root
 smbpasswd -a pi
