@@ -1,3 +1,0 @@
-#!/bin/sh
-/usr/local/bin/firefox-sync 99s96n98.default-esr78 &&
-exit
