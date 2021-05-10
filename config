@@ -5,8 +5,7 @@ max_framebuffers=2
 dtparam=audio=on
 dtparam=i2c_arm=on
 dtparam=spi=on
-dtoverlay=vc4-fkms-v3d
-arm_64bit=1
+dtoverlay=vc4-kms-v3d
 dtoverlay=dwc2
 temp_limit=85
 initial_turbo=20
