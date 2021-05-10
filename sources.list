@@ -1,2 +1,0 @@
-deb https://deb.debian.org/debian unstable main contrib non-free
-deb-src https://deb.debian.org/debian unstable main contrib non-free
