@@ -1,0 +1,19 @@
+[Unit]
+Description=Radarr Daemon
+After=syslog.target network.target
+
+[Service]
+# Change the user and group variables here.
+User=root
+Group=root
+
+Type=simple
+#Update the data path
+ExecStart=/opt/Radarr/Radarr -nobrowser -data=/path/to/appdata/for/Radarr/
+
+TimeoutStopSec=20
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

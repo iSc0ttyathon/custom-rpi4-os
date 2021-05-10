@@ -1,0 +1,2 @@
+#!/bin/bash
+/snap/chromium/current/usr/lib/chromium-browser/chrome $* &

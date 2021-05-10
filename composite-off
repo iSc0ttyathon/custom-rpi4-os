@@ -1,0 +1,4 @@
+#!/bin/bash
+
+killall xfwm4 && xfwm4 --compositor=off &&
+exit
