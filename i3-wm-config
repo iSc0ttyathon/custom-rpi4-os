@@ -10,10 +10,9 @@ exec --no-startup-id feh --bg-fill /home/pi/Pictures/Desktop.png
 exec --no-startup-id setxkbmap gb
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# Chromium
-bindsym $mod+B exec /home/pi/Chromium/Chromium 
+# FireFox-ESR
+bindsym $mod+I exec firefox-esr
 
 #layout of your workspace
 workspace_layout tabbed
