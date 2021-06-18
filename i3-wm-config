@@ -5,14 +5,23 @@ font pango:monospace 8
 # start a terminal
 bindsym $mod+Return exec sakura
 
-# Me
+# Autostart
 exec --no-startup-id feh --bg-fill /home/pi/Pictures/Desktop.png
 exec --no-startup-id setxkbmap gb
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 
-# FireFox-ESR
-bindsym $mod+I exec firefox-esr
+# FireFox
+bindsym $mod+I exec firefox
+
+# File-Manager
+bindsym $mod+F exec thunar /mnt/external/mnt/3TB/
+
+# Chromium-GPU
+bindsym $mod+B exec chromium --use-gl=egl
+
+# Hexchat
+bindsym $mod+H exec hexchat
 
 #layout of your workspace
 workspace_layout tabbed
