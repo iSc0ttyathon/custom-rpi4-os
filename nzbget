@@ -7,9 +7,9 @@ After=network.target
 User=root
 Group=root
 Type=forking
-ExecStart=/mnt/3TB/Downloads/nzbget/nzbget -D
-ExecStop=/mnt/3TB/Downloads/nzbget/nzbget -Q
-ExecReload=/mnt/3TB/Downloads/nzbget/nzbget -O
+ExecStart=/home/pi/NZBGet/nzbget -D
+ExecStop=/home/pi/NZBGet/nzbget -Q
+ExecReload=/home/pi/NZBGet/nzbget -O
 KillMode=process
 Restart=on-failure
 
